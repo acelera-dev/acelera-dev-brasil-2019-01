@@ -4,6 +4,8 @@
 
 1. Sintaxe da Linguagem Java - 
    - Fundamentos da linguagem
+   - Tipos
+   - métodos
    - Variáveis
    - Operadores
    - Controle de fluxo
