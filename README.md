@@ -3,11 +3,11 @@ Esse projeto é destinado ao exemplo de código que serão realizados nas aulas 
 
 ## Aulas
 
-* [Aula 1](https://github.com/otaviojava/acelera-dev-sp-2019/tree/master/aula-1)
-* [Aula 2](https://github.com/otaviojava/acelera-dev-sp-2019/tree/master/aula-2)
-* [Aula 3](https://github.com/otaviojava/acelera-dev-sp-2019/tree/master/aula-3)
-* [Aula 4](https://github.com/otaviojava/acelera-dev-sp-2019/tree/master/aula-4)
-* [Aula 5](https://github.com/otaviojava/acelera-dev-sp-2019/tree/master/aula-5)
+* [Aula 1](https://github.com/acelera-dev/acelera-dev-brasil-2019-01/tree/master/aula-1)
+* [Aula 2](https://github.com/acelera-dev/acelera-dev-brasil-2019-01/tree/master/aula-2)
+* [Aula 3](https://github.com/acelera-dev/acelera-dev-brasil-2019-01/tree/master/aula-3)
+* [Aula 4](https://github.com/acelera-dev/acelera-dev-brasil-2019-01/tree/master/aula-4)
+* [Aula 5](https://github.com/acelera-dev/acelera-dev-brasil-2019-01/tree/master/aula-5)
 
 
 ## Requisitos
