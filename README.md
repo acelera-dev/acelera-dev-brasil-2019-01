@@ -23,7 +23,7 @@ Esse projeto é destinado ao exemplo de código que serão realizados nas aulas 
 
 ```bash
 git clone git@github.com:acelera-dev/acelera-dev-brasil-2019-01.git
-cd acelera-dev-sp-2019.git
+cd acelera-dev-brasil-2019-01
 mvn clean install
 ```
 
