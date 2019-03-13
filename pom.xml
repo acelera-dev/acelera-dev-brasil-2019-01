@@ -22,6 +22,9 @@
     <modules>
         <module>aula-1</module>
         <module>aula-2</module>
+        <module>aula-3</module>
+        <module>aula-4</module>
+        <module>aula-5</module>
     </modules>
 
     <dependencies>

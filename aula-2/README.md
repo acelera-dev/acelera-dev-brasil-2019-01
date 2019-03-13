@@ -14,6 +14,11 @@
    - Lambda
    - Novos recursos na API de Collection   
 
+3. Orientação a Objetos com Java
+   - DDD
+   - Builders
+
+
 ## Exercícios
 
 * Criar testes para o plano de estoque
@@ -55,3 +60,4 @@ Referências:
 * [Documentação Referência](https://junit.org/junit5/docs/current/user-guide/)
 * [Unit tests with Mockito - Tutorial](http://www.vogella.com/tutorials/Mockito/article.html)
 * [Refatorando com padrões de projeto](https://www.casadocodigo.com.br/products/livro-refatoracao-java)
+* [Livro DSL](https://www.casadocodigo.com.br/products/livro-dsl)
