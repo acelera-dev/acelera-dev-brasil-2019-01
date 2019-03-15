@@ -3,9 +3,7 @@ package org.acelera.brasil;
 import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
-import java.util.function.UnaryOperator;
 import java.util.logging.Logger;
-import java.util.stream.Stream;
 
 public class BancoDadosApp {
 
@@ -22,9 +20,6 @@ public class BancoDadosApp {
                 .withEmail("meu-email")
                 .build();
 
-        Stream<Pessoa> streamA = Stream.of(pessoa);
-        Stream<Pessoa> streamB = Stream.of(pessoaB);
-        Stream<Pessoa> concat = Stream.concat(streamA, streamB);
 
         Optional<Pessoa> cache = Optional.ofNullable(null);
 
