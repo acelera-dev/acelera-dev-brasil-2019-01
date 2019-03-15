@@ -63,7 +63,10 @@ public class Pessoa {
         if (NOME_PROIBIDO.equals(nome)) {
             contador = contador - 2;
         }
-        //TODO logica quando nascer Thanos, morre metada das pessoas
+        //logica quando nascer Thanos, morre metada das pessoas
+        if (THANOS.equals(nome)) {
+        	contador = contador - (contador/2);
+        }
         return new Pessoa(nome);
     }
 
