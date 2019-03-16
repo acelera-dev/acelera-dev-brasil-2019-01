@@ -1,5 +1,6 @@
 package org.acelera.brasil;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -76,7 +77,7 @@ public class FutebolTest {
 	@Test
 	public void deveBuscaJogadoresOrdenadosPeloNumeroDeGols() {
 		List<Jogador> jogadores = this.service.buscarJogadoresOrdenadosPorNumeroDeGols();
-		
+
 		assertEquals(Arrays.asList("Jogador AA", "Jogador DA", "Jogador CA", "Jogador BA", "Jogador EA"),
 				this.service.getNomesDeJogadores(jogadores));
 	}
@@ -89,9 +90,11 @@ public class FutebolTest {
 		List<Jogador> jogadoresNaDefesa = jogadoresPorPosicao.get(Posicao.DEFESA);
 		List<Jogador> goleiros = jogadoresPorPosicao.get(Posicao.GOLEIRO);
 
-		assertEquals(Arrays.asList("Jogador AA", "Jogador DA"), this.service.getNomesDeJogadores(jogadoresNoAtaque));
-		assertEquals(Arrays.asList("Jogador EA", "Jogador BA"), this.service.getNomesDeJogadores(jogadoresNaDefesa));
-		assertEquals(Arrays.asList("Jogador CA"), this.service.getNomesDeJogadores(goleiros));
+		assertTrue(Arrays.asList("Jogador AA", "Jogador DA")
+				.containsAll(this.service.getNomesDeJogadores(jogadoresNoAtaque)));
+		assertTrue(Arrays.asList("Jogador EA", "Jogador BA")
+				.containsAll(this.service.getNomesDeJogadores(jogadoresNaDefesa)));
+		assertTrue(Arrays.asList("Jogador CA").containsAll(this.service.getNomesDeJogadores(goleiros)));
 	}
 
 	private void adicionarTime(String nome, Integer numeroDeGols, Posicao posicao) {
@@ -99,7 +102,7 @@ public class FutebolTest {
 
 		time.adicionarJogador(Jogador.builder().withNome(String.format("Jogador %sA", nome)).withCidade("Cidade A")
 				.withPais("Brasil").withNumeroDeGols(numeroDeGols).withPosicao(posicao).build());
-		
+
 		this.service.adicionarTime(time);
 	}
 
