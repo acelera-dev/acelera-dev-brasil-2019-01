@@ -31,7 +31,7 @@ public class Time {
 	}
 
 	public Jogador getArtilheiro() {
-		return this.jogadores.stream().max(Comparator.comparing(Jogador::getNumeroDeGols))
+		return this.jogadores.stream().max(Comparator.comparing(Jogador::getGols))
 				.orElseThrow(() -> new TimeNaoPossuiJogadoresException());
 	}
 	
@@ -43,7 +43,7 @@ public class Time {
 		return Collections.unmodifiableCollection(this.jogadores);
 	}
 
-	public void adicionarJogador(Jogador jogador) {
+	public void adicionar(Jogador jogador) {
 		if (jogador != null) {
 			this.jogadores.add(jogador);
 		}

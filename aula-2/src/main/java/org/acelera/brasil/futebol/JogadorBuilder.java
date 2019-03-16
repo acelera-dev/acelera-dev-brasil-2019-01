@@ -16,9 +16,9 @@ public class JogadorBuilder {
 
 	private Posicao posicao;
 
-	private Integer numeroDeGols;
+	private Integer gols;
 
-	protected JogadorBuilder() {}
+	JogadorBuilder() {}
 	
 	public JogadorBuilder withNome(String nome) {
 		this.nome = nome;
@@ -40,12 +40,12 @@ public class JogadorBuilder {
 		return this;
 	}
 
-	public JogadorBuilder withNumeroDeGols(Integer numeroDeGols) {
-		this.numeroDeGols = numeroDeGols;
+	public JogadorBuilder withGols(Integer gols) {
+		this.gols = gols;
 		return this;
 	}
 
 	public Jogador build() {
-		return new Jogador(nome, cidade, pais, posicao, numeroDeGols);
+		return new Jogador(nome, cidade, pais, posicao, gols);
 	}
 }

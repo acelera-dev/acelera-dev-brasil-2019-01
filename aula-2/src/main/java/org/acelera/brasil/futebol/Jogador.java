@@ -16,15 +16,17 @@ public class Jogador {
 
 	private final Posicao posicao;
 
-	private final Integer numeroDeGols;
+	private final Integer gols;
 
-	protected Jogador(String nome, String cidade, String pais, Posicao posicao, Integer numeroDeGols) {
-		super();
+	Jogador(String nome, String cidade, String pais, Posicao posicao, Integer gols) {
 		this.nome = nome;
 		this.cidade = cidade;
 		this.pais = pais;
 		this.posicao = posicao;
-		this.numeroDeGols = numeroDeGols;
+		if(gols < 0) {
+			throw new IllegalArgumentException("O número de gols não pode ser negativo.");
+		}
+		this.gols = gols;
 	}
 
 	public String getNome() {
@@ -43,8 +45,8 @@ public class Jogador {
 		return posicao;
 	}
 
-	public Integer getNumeroDeGols() {
-		return numeroDeGols;
+	public Integer getGols() {
+		return gols;
 	}
 
 	public static JogadorBuilder builder() {
@@ -54,7 +56,7 @@ public class Jogador {
 	@Override
 	public String toString() {
 		return "Jogador [nome=" + nome + ", cidade=" + cidade + ", pais=" + pais + ", posicao=" + posicao
-				+ ", numeroDeGols=" + numeroDeGols + "]";
+				+ ", gols=" + gols + "]";
 	}
 
 }
