@@ -50,18 +50,18 @@ public class FutebolTest {
 	public void deveBuscarArtilheiroDoTime() {
 		Time time = new Time("Time F");
 
-		time.adicionarJogador(Jogador.builder().withNome("Jogador FA").withCidade("Cidade A").withPais("Brasil")
-				.withNumeroDeGols(10).withPosicao(Posicao.ATAQUE).build());
-		time.adicionarJogador(Jogador.builder().withNome("Jogador FB").withCidade("Cidade A").withPais("Brasil")
-				.withNumeroDeGols(5).withPosicao(Posicao.DEFESA).build());
-		time.adicionarJogador(Jogador.builder().withNome("Jogador FC").withCidade("Cidade A").withPais("Brasil")
-				.withNumeroDeGols(2).withPosicao(Posicao.GOLEIRO).build());
+		time.adicionar(Jogador.builder().withNome("Jogador FA").withCidade("Cidade A").withPais("Brasil")
+				.withGols(10).withPosicao(Posicao.ATAQUE).build());
+		time.adicionar(Jogador.builder().withNome("Jogador FB").withCidade("Cidade A").withPais("Brasil")
+				.withGols(5).withPosicao(Posicao.DEFESA).build());
+		time.adicionar(Jogador.builder().withNome("Jogador FC").withCidade("Cidade A").withPais("Brasil")
+				.withGols(2).withPosicao(Posicao.GOLEIRO).build());
 		this.service.adicionarTime(time);
 
 		Jogador artilheiro = this.service.buscarArtilheiroTime("Time F");
 
 		assertEquals("Jogador FA", artilheiro.getNome());
-		assertEquals(10, artilheiro.getNumeroDeGols());
+		assertEquals(10, artilheiro.getGols());
 	}
 
 	@Test
@@ -97,11 +97,18 @@ public class FutebolTest {
 		assertTrue(Arrays.asList("Jogador CA").containsAll(this.service.getNomesDeJogadores(goleiros)));
 	}
 
-	private void adicionarTime(String nome, Integer numeroDeGols, Posicao posicao) {
+	@Test
+	public void deveOcorrerErroAoCriarJogadorComNumeroDeGolsNegativo() {
+
+		assertThrows(IllegalArgumentException.class, () -> Jogador.builder().withNome("Jogador FA")
+				.withCidade("Cidade A").withPais("Brasil").withGols(-2).withPosicao(Posicao.ATAQUE).build());
+	}
+
+	private void adicionarTime(String nome, Integer gols, Posicao posicao) {
 		Time time = new Time(String.format("Time %s", nome));
 
-		time.adicionarJogador(Jogador.builder().withNome(String.format("Jogador %sA", nome)).withCidade("Cidade A")
-				.withPais("Brasil").withNumeroDeGols(numeroDeGols).withPosicao(posicao).build());
+		time.adicionar(Jogador.builder().withNome(String.format("Jogador %sA", nome)).withCidade("Cidade A")
+				.withPais("Brasil").withGols(gols).withPosicao(posicao).build());
 
 		this.service.adicionarTime(time);
 	}

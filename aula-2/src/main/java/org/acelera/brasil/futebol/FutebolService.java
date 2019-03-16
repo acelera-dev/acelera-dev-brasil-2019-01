@@ -33,7 +33,7 @@ public class FutebolService {
 	}
 
 	public List<Jogador> buscarJogadoresComDireitoAoGolNoFantastico() {
-		return this.getJogadores().filter((jogador) -> jogador.getNumeroDeGols() >= QTD_GOLS_EM_UMA_PARTIDA)
+		return this.getJogadores().filter((jogador) -> jogador.getGols() >= QTD_GOLS_EM_UMA_PARTIDA)
 				.collect(Collectors.toList());
 	}
 
@@ -45,7 +45,7 @@ public class FutebolService {
 	}
 
 	public List<Jogador> buscarJogadoresOrdenadosPorNumeroDeGols() {
-		return this.getJogadores().sorted(Comparator.comparing(Jogador::getNumeroDeGols)).collect(Collectors.toList());
+		return this.getJogadores().sorted(Comparator.comparing(Jogador::getGols)).collect(Collectors.toList());
 	}
 
 	public Map<Posicao, List<Jogador>> agruparJogadoresPorPosicao() {
