@@ -1,4 +1,4 @@
-package org.acelera.brasil;
+package org.acelera.brasil.pessoa;
 
 import java.util.ArrayList;
 import java.util.Collections;
