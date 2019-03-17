@@ -4,6 +4,8 @@ public class Pessoa {
 
     private final String nome;
 
+    private final int idade;
+
     private final String cidade;
 
     private final String pais;
@@ -16,8 +18,9 @@ public class Pessoa {
 
     private final Sexo sexo;
 
-    Pessoa(String nome, String cidade, String pais, String rg, String cpf, String email, Sexo sexo) {
+    Pessoa(String nome, int idade, String cidade, String pais, String rg, String cpf, String email, Sexo sexo) {
         this.nome = nome;
+        this.idade = idade;
         this.cidade = cidade;
         this.pais = pais;
         this.rg = rg;
@@ -28,6 +31,10 @@ public class Pessoa {
 
     public String getNome() {
         return nome;
+    }
+
+    public int getIdade() {
+        return idade;
     }
 
     public String getCidade() {
