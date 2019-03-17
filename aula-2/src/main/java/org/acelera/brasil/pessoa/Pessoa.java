@@ -2,8 +2,6 @@ package org.acelera.brasil.pessoa;
 
 public class Pessoa {
 
-    static final String CONSTANTE = "minha constante";
-
     private final String nome;
 
     private final String cidade;
@@ -40,9 +38,20 @@ public class Pessoa {
         return pais;
     }
 
+    public String getRg() {
+        return rg;
+    }
 
-    public int getIdade() {
-        return 1;
+    public String getCpf() {
+        return cpf;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public Sexo getSexo() {
+        return sexo;
     }
 
     @Override
