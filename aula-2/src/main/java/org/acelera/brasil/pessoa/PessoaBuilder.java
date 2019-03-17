@@ -25,6 +25,11 @@ public class PessoaBuilder {
         return this;
     }
 
+    public PessoaBuilder withIdade(int idade) {
+        this.idade = idade;
+        return this;
+    }
+
     public PessoaBuilder withCidade(String cidade) {
         this.cidade = cidade;
         return this;
