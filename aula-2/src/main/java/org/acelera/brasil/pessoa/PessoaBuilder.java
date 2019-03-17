@@ -6,6 +6,8 @@ public class PessoaBuilder {
 
     private String nome;
 
+    private int idade;
+
     private String cidade;
 
     private String pais;
@@ -57,6 +59,6 @@ public class PessoaBuilder {
         Objects.requireNonNull(nome, "o nome é obrigatorio");
         Objects.requireNonNull(cidade, "o cidade é obrigatorio");
         Objects.requireNonNull(pais, "o pais é obrigatorio");
-        return new Pessoa(nome, cidade, pais, rg, cpf, email, sexo);
+        return new Pessoa(nome, idade, cidade, pais, rg, cpf, email, sexo);
     }
 }

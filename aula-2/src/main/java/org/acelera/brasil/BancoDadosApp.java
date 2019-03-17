@@ -5,6 +5,8 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 import java.util.logging.Logger;
 
+import org.acelera.brasil.pessoa.Pessoa;
+
 public class BancoDadosApp {
 
     private static Logger LOGGER = Logger.getLogger(BancoDadosApp.class.getName());
