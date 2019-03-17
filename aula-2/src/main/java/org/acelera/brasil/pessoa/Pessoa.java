@@ -1,10 +1,10 @@
-package org.acelera.brasil;
+package org.acelera.brasil.pessoa;
 
 public class Pessoa {
 
-    static final String CONSTANTE = "minha constante";
-
     private final String nome;
+
+    private final int idade;
 
     private final String cidade;
 
@@ -18,8 +18,9 @@ public class Pessoa {
 
     private final Sexo sexo;
 
-    Pessoa(String nome, String cidade, String pais, String rg, String cpf, String email, Sexo sexo) {
+    Pessoa(String nome, int idade, String cidade, String pais, String rg, String cpf, String email, Sexo sexo) {
         this.nome = nome;
+        this.idade = idade;
         this.cidade = cidade;
         this.pais = pais;
         this.rg = rg;
@@ -32,6 +33,10 @@ public class Pessoa {
         return nome;
     }
 
+    public int getIdade() {
+        return idade;
+    }
+
     public String getCidade() {
         return cidade;
     }
@@ -40,9 +45,20 @@ public class Pessoa {
         return pais;
     }
 
+    public String getRg() {
+        return rg;
+    }
 
-    public int getIdade() {
-        return 1;
+    public String getCpf() {
+        return cpf;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public Sexo getSexo() {
+        return sexo;
     }
 
     @Override
