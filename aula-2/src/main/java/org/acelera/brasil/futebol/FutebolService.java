@@ -27,9 +27,10 @@ public class FutebolService {
 	}
 
 	public void adicionarTime(Time time) {
-		if (time != null) {
-			this.times.add(time);
+		if (time == null) {
+			throw new TimeNaoEncontradoException();
 		}
+		this.times.add(time);
 	}
 
 	public List<Jogador> buscarJogadoresComDireitoAoGolNoFantastico() {

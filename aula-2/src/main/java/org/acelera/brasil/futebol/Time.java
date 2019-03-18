@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.acelera.brasil.futebol.exception.JogadorNaoEncontradoException;
 import org.acelera.brasil.futebol.exception.TimeNaoPossuiJogadoresException;
 
 /**
@@ -44,9 +45,10 @@ public class Time {
 	}
 
 	public void adicionar(Jogador jogador) {
-		if (jogador != null) {
-			this.jogadores.add(jogador);
+		if (jogador == null) {
+			throw new JogadorNaoEncontradoException();
 		}
+		this.jogadores.add(jogador);
 	}
 
 	@Override

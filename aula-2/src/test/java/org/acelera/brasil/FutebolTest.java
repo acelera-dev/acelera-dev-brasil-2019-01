@@ -12,6 +12,8 @@ import org.acelera.brasil.futebol.FutebolService;
 import org.acelera.brasil.futebol.Jogador;
 import org.acelera.brasil.futebol.Posicao;
 import org.acelera.brasil.futebol.Time;
+import org.acelera.brasil.futebol.exception.JogadorNaoEncontradoException;
+import org.acelera.brasil.futebol.exception.TimeNaoEncontradoException;
 import org.acelera.brasil.futebol.exception.TimeNaoPossuiJogadoresException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -104,6 +106,7 @@ public class FutebolTest {
 				.withCidade("Cidade A").withPais("Brasil").withGols(-2).withPosicao(Posicao.ATAQUE).build());
 	}
 
+	@Test
 	private void adicionarTime(String nome, Integer gols, Posicao posicao) {
 		Time time = new Time(String.format("Time %s", nome));
 
@@ -112,5 +115,19 @@ public class FutebolTest {
 
 		this.service.adicionarTime(time);
 	}
+
+	@Test
+	public void deveOcorrerErroAoAdicionarUmTimeNullo() {
+
+		assertThrows(TimeNaoEncontradoException.class, () -> this.service.adicionarTime(null));
+	}
+
+	@Test
+	public void deveOcorrerErroAoAdicionarJogadorNullo() {
+		Time time = new Time("Time J");
+
+		assertThrows(JogadorNaoEncontradoException.class, () -> time.adicionar(null));
+	}
+
 
 }
