@@ -54,11 +54,11 @@ public class FutebolTest {
 	public void deveBuscarArtilheiroDoTime() {
 		Time time = new Time("Time F");
 
-		time.adicionar(Jogador.builder().withNome("Jogador FA").withCidade("Cidade A").withPais("Brasil")
+		time.adicionar(new Jogador.Builder().withNome("Jogador FA").withCidade("Cidade A").withPais("Brasil")
 				.withGols(10).withPosicao(Posicao.ATAQUE).build());
-		time.adicionar(Jogador.builder().withNome("Jogador FB").withCidade("Cidade A").withPais("Brasil")
+		time.adicionar(new Jogador.Builder().withNome("Jogador FB").withCidade("Cidade A").withPais("Brasil")
 				.withGols(5).withPosicao(Posicao.DEFESA).build());
-		time.adicionar(Jogador.builder().withNome("Jogador FC").withCidade("Cidade A").withPais("Brasil")
+		time.adicionar(new Jogador.Builder().withNome("Jogador FC").withCidade("Cidade A").withPais("Brasil")
 				.withGols(2).withPosicao(Posicao.GOLEIRO).build());
 		this.service.adicionarTime(time);
 
@@ -104,7 +104,7 @@ public class FutebolTest {
 	@Test
 	public void deveOcorrerErroAoCriarJogadorComNumeroDeGolsNegativo() {
 
-		assertThrows(IllegalArgumentException.class, () -> Jogador.builder().withNome("Jogador FA")
+		assertThrows(IllegalArgumentException.class, () -> new Jogador.Builder().withNome("Jogador FA")
 				.withCidade("Cidade A").withPais("Brasil").withGols(-2).withPosicao(Posicao.ATAQUE).build());
 	}
 
@@ -112,8 +112,10 @@ public class FutebolTest {
 	private void adicionarTime(String nome, Integer gols, Posicao posicao) {
 		Time time = new Time(String.format("Time %s", nome));
 
-		time.adicionar(Jogador.builder().withNome(String.format("Jogador %sA", nome)).withCidade("Cidade A")
-				.withPais("Brasil").withGols(gols).withPosicao(posicao).build());
+		time.adicionar(
+				new Jogador.Builder().withNome(String.format("Jogador %sA", nome)).withCidade("Cidade A")
+				.withPais("Brasil").withGols(gols).withPosicao(posicao).build()
+		);
 
 		this.service.adicionarTime(time);
 	}
@@ -129,4 +131,70 @@ public class FutebolTest {
 		assertThrows(JogadorNaoEncontradoException.class, () -> time.adicionar(null));
 	}
 
+	@Test
+	public void deveOcorrerErroAoCriarJogadorSemNome() {
+
+		assertThrows(NullPointerException.class, () -> {
+			 new Jogador.Builder()
+					.withCidade("Cidade A")
+					.withPais("Brasil")
+					.withGols(10)
+					.withPosicao(Posicao.ATAQUE)
+					.build();
+
+		});
+	}
+
+	@Test
+	public void deveOcorrerErroAoCriarJogadorSemCidade() {
+		assertThrows(NullPointerException.class, () -> {
+			new Jogador.Builder()
+					.withNome("Jogador FA")
+					.withPais("Brasil")
+					.withGols(10)
+					.withPosicao(Posicao.ATAQUE)
+					.build();
+
+
+		});
+	}
+
+	@Test
+	public void deveOcorrerErroAoCriarJogadorSemPais() {
+		assertThrows(NullPointerException.class, () -> {
+			new Jogador.Builder()
+					.withNome("Jogador FA")
+					.withPais("Brasil")
+					.withGols(10)
+					.withPosicao(Posicao.ATAQUE)
+					.build();
+
+
+		});
+	}
+	@Test
+	public void deveOcorrerErroAoCriarJogadorSemGols() {
+		assertThrows(NullPointerException.class, () -> {
+			new Jogador.Builder()
+					.withNome("Jogador FA")
+					.withCidade("Cidade A")
+					.withPais("Brasil")
+					.withPosicao(Posicao.ATAQUE)
+					.build();
+
+
+		});
+	}
+	@Test
+	public void deveOcorrerErroAoCriarJogadorSemPosicao() {
+		assertThrows(NullPointerException.class, () -> {
+			new Jogador.Builder()
+					.withNome("Jogador FA")
+					.withCidade("Cidade A")
+					.withPais("Brasil")
+					.withGols(10)
+					.build();
+
+		});
+	}
 }
