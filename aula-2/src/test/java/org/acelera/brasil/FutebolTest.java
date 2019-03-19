@@ -12,9 +12,11 @@ import org.acelera.brasil.futebol.FutebolService;
 import org.acelera.brasil.futebol.Jogador;
 import org.acelera.brasil.futebol.Posicao;
 import org.acelera.brasil.futebol.Time;
+
 import org.acelera.brasil.futebol.exception.JogadorNaoEncontradoException;
 import org.acelera.brasil.futebol.exception.TimeNaoEncontradoException;
 import org.acelera.brasil.futebol.exception.TimeNaoPossuiJogadoresException;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.runner.JUnitPlatform;
@@ -117,17 +119,14 @@ public class FutebolTest {
 	}
 
 	@Test
-	public void deveOcorrerErroAoAdicionarUmTimeNullo() {
-
+	public void deveOcorrerErroAoAdicionarUmTimeNullo() {  
 		assertThrows(TimeNaoEncontradoException.class, () -> this.service.adicionarTime(null));
 	}
 
 	@Test
 	public void deveOcorrerErroAoAdicionarJogadorNullo() {
-		Time time = new Time("Time J");
-
+    Time time = new Time("Time J");
 		assertThrows(JogadorNaoEncontradoException.class, () -> time.adicionar(null));
 	}
-
 
 }
