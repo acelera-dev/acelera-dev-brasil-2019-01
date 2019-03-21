@@ -12,7 +12,7 @@
    - Motivação
    - Stream API
    - Lambda
-   - Novos recursos na API de Collection   
+   - Novos recursos na API de Collection
 
 3. Orientação a Objetos com Java
    - DDD

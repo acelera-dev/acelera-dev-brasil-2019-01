@@ -2,17 +2,21 @@
 
 ## Grade
 
-1. Testes de Unidade
+
+1. Novas API com o Java 8
+   - Novos recursos na API de Collection
+
+2. Testes de Unidade
    - Testes de Unidade
    - O que é JUnit
    - JMockito
 
-2. Orientação a Objetos com Java
+3. Orientação a Objetos com Java
    - Camadas
    - Classe abstrata
    - Package by feature vs Package by layer
    
-3. Rest 
+4. Rest 
    - Spring Rest
    - Injeção de dependência
 
