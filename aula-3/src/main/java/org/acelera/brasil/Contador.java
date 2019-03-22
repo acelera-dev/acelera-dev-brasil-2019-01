@@ -12,10 +12,11 @@ public class Contador {
         Objects.requireNonNull(produto, "produto eh obrigatorio");
 
         controle.computeIfPresent(produto, (k, v) -> v + 1);
-        controle.computeIfAbsent(produto, k -> 1);
+        controle.put(produto, 1);
     }
 
     public int quantidade(String produto) {
+        Objects.requireNonNull(produto, "produto eh obrigatorio");
         return controle.getOrDefault(produto, 0);
     }
 }

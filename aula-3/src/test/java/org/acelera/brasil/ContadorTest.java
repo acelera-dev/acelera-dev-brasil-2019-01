@@ -22,16 +22,21 @@ class ContadorTest {
     }
 
     @Test
-    @DisplayName("Deve retornar erro quando o produto for nulo")
-    public void deveRetornarErro() {
+    @DisplayName("Deve retornar erro quando o produto for nulo ao adicionar")
+    public void deveRetornarErroAoAdicionar() {
         Assertions.assertThrows(NullPointerException.class, () -> contador.add(null));
-
     }
 
     @Test
     @DisplayName("Deve retornar zero quando o contador estiver vazio")
     public void deveRetornarZeroQuandoEstoqueEstiverVazio() {
-    Assertions.assertEquals(0, contador.quantidade("banana"));
+        Assertions.assertEquals(0, contador.quantidade("banana"));
+    }
+
+    @Test
+    @DisplayName("Deve retornar erro quando o produto for nulo ao verificar quantidade")
+    public void deveRetornarErroEmQuantidade(){
+        Assertions.assertThrows(NullPointerException.class, () -> contador.quantidade(null));
     }
 
 }
