@@ -1,27 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
 
-  <parent>
-   <groupId>br.com.codenation</groupId>
-   <artifactId>acelera-brasil-2019-01</artifactId>
-   <version>0.0.1</version>
- </parent>
+    <parent>
+        <groupId>br.com.codenation</groupId>
+        <artifactId>acelera-brasil-2019-01</artifactId>
+        <version>0.0.1</version>
+    </parent>
 
- <artifactId>aula-4</artifactId>
- 
- <name>Quarta aula do Acelera Brasil 2019/01</name>
+    <artifactId>aula-4</artifactId>
+
+    <name>Quarta aula do Acelera Brasil 2019/01</name>
 
 
- <properties>
- </properties>
+    <properties>
+        <spring.version>2.1.2.RELEASE</spring.version>
+        <java.version>1.8</java.version>
+        <maven.compile.sourceLevel>1.8</maven.compile.sourceLevel>
+        <maven.compile.targetLevel>1.8</maven.compile.targetLevel>
+        <maven.compile.version>3.8.0</maven.compile.version>
+        <maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version>
+        <mockito.verson>2.25.0</mockito.verson>
+    </properties>
 
- <dependencies>
- </dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-rest</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.197</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
- <build>
- </build>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compile.version}</version>
+                <configuration>
+                    <target>${maven.compile.targetLevel}</target>
+                    <source>${maven.compile.sourceLevel}</source>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.plugin.version}</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>
