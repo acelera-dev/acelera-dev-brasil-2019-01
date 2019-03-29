@@ -1,9 +1,16 @@
 package org.acelera.brasil;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Produto {
 
+    @Id
     private Long id;
 
+    @Column
     private String nome;
 
     public Long getId() {

@@ -1,5 +1,6 @@
 package org.acelera.brasil;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
@@ -8,22 +9,26 @@ import java.util.Map;
 @Repository
 public class Storage {
 
-    private Map<Long, Produto> data = new HashMap<>();
+
+    @Autowired
+    private ProdutoRepository repository;
 
 
     public Produto get(long id) {
-        return data.get(id);
+        return repository.findById(id).get();
     }
 
     public Produto update(long id, Produto produto) {
-        return data.computeIfPresent(id, (k, v) -> produto);
+        return repository.save(produto);
     }
 
     public Produto remove(long id) {
-        return data.remove(id);
+        Produto produto = repository.findById(id).get();
+        repository.deleteById(id);
+        return produto;
     }
 
     public void put(Produto produto) {
-        data.put(produto.getId(), produto);
+        repository.save(produto);
     }
 }
